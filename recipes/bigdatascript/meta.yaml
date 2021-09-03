@@ -1,4 +1,4 @@
-{% set version = "v3.1" %}
+{% set version = "v3.1a" %}
 #{% set version = "9ad04607" %}
 #this commit should include config search path
 #{% set version = "f9d5bd97" %}
@@ -6,7 +6,7 @@
 #https://github.com/adoptium/temurin16-binaries/releases/download/jdk16u-2021-07-31-01-01-beta/OpenJDK16U-debugimage_x64_mac_hotspot_2021-07-30-23-30.tar.gz
 #
 package:
-  name: bigdatascript
+  name: bds
   version: {{ version }}
   #version: "v2.0+{{ version }}"
 
@@ -20,14 +20,15 @@ build:
 
 requirements:
   build:
-    - ant
+    - maven
     - go
+    - gcc_linux-64
 
-test:
-  commands:
-    - "bds -version 2>&1 | grep Bds"
+      #test:
+      #  commands:
+      #    - "bds -version 2>&1 | grep Bds"
 
 about:
-  home: "http://pcingola.github.io/BigDataScript"
+  home: "http://pcingola.github.io/bds"
   license: Apache 2.0
   summary: "A simple script-language for 'Big Data' piplines."
